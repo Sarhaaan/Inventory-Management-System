@@ -1,0 +1,644 @@
+POST https://api-tradego.herokuapp.com/api/companyuser/authcompanyuser HTTP/1.1
+content-type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin123"
+}
+
+###
+POST https://api-tradego.herokuapp.com/api/customeruser/authcustomeruser HTTP/1.1
+content-type: application/json
+
+{
+    "email": "rajwinder123@gmail.com",
+    "password": "rajwinder123"
+}
+
+// For Creating Company User and Company Details ---------------->
+
+###
+POST  https://api-tradego.herokuapp.com/api/companyuser/createCompany HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+{   
+    "Fname": "raju",
+    "Lname": "Dave",
+    "Email":"rawju@gmail.com",
+    "Password":"rrr",
+    "PhoneNumber":"4157891458",
+    "CompanyName":"Raju",
+    "Website":"www.abc.com",
+    "Address1":"12,4000",
+    "Address2":"Rue Barclay",
+    "City":"Montreal",
+    "CountryId":1,
+    "ProvinceId":"1",
+    "PostalCode":"H3S1K3"
+}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="Logo"; filename="download.png"
+Content-Type: image/png
+
+< C:\Users\mbhav\OneDrive\Desktop\download.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
+
+// Forget Password for Company User -------------------------->
+###
+
+POST http://localhost:3000/api/companyuser/forgetPasswordCompany HTTP/1.1
+content-type: application/json
+
+{
+    "email": "amidave80@gmail.com"
+}
+//creating new customer on app
+###
+POST   http://localhost:3000/api/customeruser/createcustomeruser HTTP/1.1
+content-type: application/json
+
+{
+        "Fname": "Neha",
+        "Lname": "Bhavsar",
+        "email":"nehlk21kxkkxkn@gmail.com",
+        "phonenumber":"1234567898",
+        "countryid":1,
+        "provinceid":26,
+        "city":"montreal",
+        "postal":"asdff",
+        "address":"bvjdnks",
+        "password":"dkkkkkk",
+        "companyid":"1"  
+}
+
+
+// Forget Password for Customer User ----------------------->
+###
+GET http://localhost:3000/api/customeruser/forgetPasswordCustomer HTTP/1.1
+content-type: application/json
+
+{
+    "email": "amidave80@gmail.comm"
+}
+
+// creating New Supplier ----------------------------------> 
+###
+
+POST  http://localhost:3000/api/supplier/createSupplier HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaTE0M0BnbWFpbC5jb20iLCJpYXQiOjE1ODQ5MTk4OTB9.SxQ4AjeIVZEXNwUcd8UH0xAghCtjD0wJfQfwfZUuG68
+content-type: application/json
+
+{
+    "SupplierName": "Shreeji co.",
+    "SupplierEmail": "shreejico@gmail.com",
+    "SupplierPhone":"5147854512",
+    "DiscountRate":"5",
+    "SupplierName" :"Meh33kkul1 B1havsar",
+    "SupplierEmail": "suppliuu321er119@gom",
+    "SupplierPhone":"4157891458",
+    "DiscountRate":"10",
+    "CountryId":"1",
+    "ProvinceId":"1",
+    "Address1":"4120",
+    "Address2":"Rue Saint-laurent",
+    "City":"Montreal",
+    "PostalCode":"H5R9J3",
+    "PostalCode":"H3S1J3",
+    "CompanyId" : "1"
+}
+
+###
+//Edit Supplier deatils --------------------->
+PUT  http://localhost:3000/api/supplier/editsupplier HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaWRhdjExZTgwQGdtYWlsLmNvbSIsImlhdCI6MTU4NTE1NTI2OH0.GggcHDYu0f3rA1zsmA1SvChfxtPHmxXk6fnAxhLvB7k
+content-type: application/json
+
+{
+    "SupplierId"  : "1",
+    "SupplierName": "Ahm corp",
+    "SupplierEmail": "amhcorp@gmail.com",
+    "SupplierPhone":"4157891458",
+    "DiscountRate":"15",
+    "CountryId":"1",
+    "ProvinceId":"1",
+    "Address1":"4120",
+    "Address2":"Rue Saint-laurent",
+    "City":"Montreal",
+    "PostalCode":"H5R9J3",
+    "CompanyId" : "1"
+}
+
+// Get Supplier By Id ------------------------->
+###
+
+GET https://api-tradego.herokuapp.com/api/supplier/getsupplierbyId?SupplierId=3&CompanyId=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2Nzk3NTd9.0ItQQeLA2iIAawSxdeGx6zD16Q9P9nrSmCdWI9psCqE
+content-type: application/json
+
+
+###
+
+POST https://api-tradego.herokuapp.com/api/supplier/getsuppliers HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2Nzk3NTd9.0ItQQeLA2iIAawSxdeGx6zD16Q9P9nrSmCdWI9psCqE
+content-type: application/json
+
+{
+   "CompanyId":10
+}
+
+
+//fetching countries
+###
+GET http://localhost:3000/api/countries/country HTTP/1.1
+content-type: application/json
+
+
+//for fetching provinces by passing country id
+###
+POST https://api-tradego.herokuapp.com/api/provinces/province HTTP/1.1
+content-type: application/json
+
+{
+    "country_id": 1
+}
+
+//for fetching provinces by passing country name
+###
+POST http://localhost:3000/api/getprovinces/getprovince HTTP/1.1
+content-type: application/json
+
+{
+    "country_name": "canada"
+}
+// Add new Product -------------------------------->
+###
+
+POST  http://localhost:3000/api/product/createproduct HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaWRhdjExZTgwQGdtYWlsLmNvbSIsImlhdCI6MTU4NTE1NTI2OH0.GggcHDYu0f3rA1zsmA1SvChfxtPHmxXk6fnAxhLvB7k
+content-type: application/json
+
+{
+    "Product_name":"Converse",
+    "SKU":"dh-1000-02",
+    "Description":"Comfertable stylish converse",
+    "PurchasePrice":"320",
+    "RetailPrice":"350",
+    "CategoryId":1,
+    "Country_Origin_id":1,
+    "Image":"‪D:\\SuperMarket-Project\\products\\hoodie.jpg",
+    "SupplierId":2,
+    "Barcode":"45000 10000",
+    "Qty_minimum_required":50
+}
+
+
+//creating new  category
+###
+POST https://api-tradego.herokuapp.com/api/category/createCategory HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2OTM4MDl9.4tOZte2yJnh96RS0cf0znnR6uz1_P-40UdO5LnGCXJQ
+content-type: application/json
+
+{
+    "categoryname": "test1111",
+    "SKU": "pnsl-9900-01",
+    "tags": "Cosmatics",
+    "companyid":1
+}
+
+// Edit category ------------------------------------->
+
+###
+PUT  http://localhost:3000/api/category/editcategory HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaWRhdjExZTgwQGdtYWlsLmNvbSIsImlhdCI6MTU4NTE1NTg4NH0.CdthD2qmF17a8s8GFz83Os4k7xv0R2eGWGvAmG5ZG7I
+content-type: application/json
+
+{
+    "categoryId": "4",
+    "categoryname":"Books",
+    "SKU": "jns-1000-01",
+    "tags"  : "Book"
+}
+
+// Get all Categories ------------------------------->
+###
+POST  http://localhost:3000/api/category/getcategories HTTP/1.1
+content-type: application/json
+
+{
+    "CompanyId": 1
+}
+
+// Get category By Id ----------------------->
+###
+
+GET http://localhost:3000/api/category/getcategorybyId?CategoryId=1&CompanyId=1 HTTP/1.1
+content-type: application/json
+
+
+
+
+// Delete Product ------------------------------>
+### 
+
+PUT http://localhost:3000/api/product/deleteproduct HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaWRhdjExZTgwQGdtYWlsLmNvbSIsImlhdCI6MTU4NTE1NTcwOX0.4MlmwvbDsZbIpYS-TZl0jItElcM41UhYvnJIAVZ9S1c
+content-type: application/json
+
+{
+    "ProductId":"13"
+}
+
+// Edit Product --------------------------------------->
+###
+
+PUT  http://localhost:3000/api/product/editproduct HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaWRhdjExZTgwQGdtYWlsLmNvbSIsImlhdCI6MTU4NTE1NTcwOX0.4MlmwvbDsZbIpYS-TZl0jItElcM41UhYvnJIAVZ9S1c
+
+{
+    "ProductId":4,
+    "ProductName":"Hoodie",
+    "Description":"Men's winter hoodie",
+    "PurchasePrice":"30",
+    "RetailPrice":"40",
+    "CategoryId":1,
+    "Country_Origin_id":1,
+    "Image":"‪D:\\SuperMarket-Project\\products\\hoodie.jpg",
+    "SupplierId":1,
+    "QtyMinRequired":20,
+    "CompanyId":1
+}
+
+// Get All Products ----------------------------> 
+###
+
+POST  http://localhost:3000/api/product/getproducts?ProductName=e&&SKU=0000 HTTP/1.1
+content-type: application/json
+
+{
+    "CompanyId": 1
+}
+
+// Get Product By Id ---------------------------->
+###
+
+GET http://localhost:3000/api/product/getproductbyId?ProductId=1&CompanyId=1 HTTP/1.1
+content-type: application/json
+
+// Get Suppiler By Id ---------------------------->
+###
+
+GET http://localhost:3000/api/supplier/getsupplierbyId?SupplierId=1&CompanyId=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaWRhdjExZTgwQGdtYWlsLmNvbSIsImlhdCI6MTU4NTE1Njk5OH0.6_TJadF8SNGIKm3cX_nXjbePRIN5TG3Eeaz1S-Ab5TM
+content-type: application/json
+
+// Create Puchase Order -------------------------------------------->
+###
+POST  http://localhost:3000/api/purchaseorder/create HTTP/1.1
+content-type: application/json
+
+{
+	"SupplierId": "2", 
+	"CurrencyId": 1, 
+	"DiscountRate": 10, 
+	"PurchaseOrderTotal": 400,
+	"products": [
+		{
+			"ProductId":7,
+			"Price": 200, 
+			"Quantity": 2,
+			"Total": 800
+		},
+        {
+			"ProductId":6,
+			"Price": 100, 
+			"Quantity": 2,
+			"Total": 200
+		},
+        {
+			"ProductId":1,
+			"Price": 50, 
+			"Quantity": 4,
+			"Total": 200
+		}
+	]
+}
+//create sales api
+###
+POST http://localhost:3000/api/sales/createsales HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU3NzEyOTl9.qM8OzTW_UAdiX4HVnbGaCAdpcNOzrjmDjeheStSr4kQ
+content-type: application/json
+
+{
+    "customerid":6,
+    "total":"347",
+    "product": [{"productid": 1,
+                  "qty" : "2",
+                  "price": "12.33",
+                  "subtotal":"25"},
+                  {"productid": 5,
+                  "qty" : "2",
+                  "price": "160.33",
+                  "subtotal":"322"}]
+}
+// Edit Purchase Order -------------------------------->
+
+###
+PUT  http://localhost:3000/api/purchaseorder/edit HTTP/1.1
+content-type: application/json
+
+{
+    "purchase_ord_id":3,
+    "SupplierId":1,
+    "PurchaseOrderTotal":15000,
+    "products":[
+        {
+           "ProductId":2,
+           "PurchaseOrder_ProductId":46,
+           "Quantity":5,
+           "Total":8000 
+        },
+        {
+           "ProductId":4,
+           "PurchaseOrder_ProductId":47,
+           "Quantity":5,
+           "Total":7000 
+        }
+    ]
+}
+####
+
+POST  http://localhost:3000/api/delivery/create HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaWRhdjExZTgwQGdtYWlsLmNvbSIsImlhdCI6MTU4NTE1NTI2OH0.GggcHDYu0f3rA1zsmA1SvChfxtPHmxXk6fnAxhLvB7k
+content-type: application/json
+
+{
+    "PurchaseOrderId":"1"
+}
+
+####
+
+
+########
+// get All delivery 
+//Search Query param
+//SupplierName
+//DeliveryId
+//Status 
+###
+
+####
+
+POST  http://localhost:3000/api/delivery/getdeliveries HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyMzQ1QGdtYWlsLmNvbSIsImlhdCI6MTU4NjE3NjMzNX0.lxgdlerzOz2oE2_bIf1u9zUeKnTHPBrgIgu3SzG24u4
+content-type: application/json
+
+{
+    "CompanyId":"1"
+}
+
+
+
+
+// Cancel Purchase Order ------------------------------>
+### 
+
+PUT http://localhost:3000/api/purchaseorder/cancel HTTP/1.1
+content-type: application/json
+
+{
+    "CompanyId":1 ,
+    "Purchase_OrderId":6
+}
+
+####
+// Delete Purchase Order by purchase_orderid
+DELETE  http://localhost:3000/api/purchaseorder/deletepurchaseorder?purchase_orderid=80 HTTP/1.1
+content-type: application/json
+
+
+
+// Get all Purchase orders  ------------------------------->
+###
+POST  http://localhost:3000/api/purchaseorder/getpurchaseorders HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2MDQ4OTl9.7vaQOr6Hm9Nnm8cV-Vio_5pe5RbR3gUwqZ8CNl4Siiw
+content-type: application/json
+
+{
+    "CompanyId":1
+}
+
+
+###
+//get purchase order details by id
+
+GET  http://localhost:3000/api/purchaseorder/getpurchaseorderbyid?CompanyId=1&PurchaseOrderId=5 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2MDQ4OTl9.7vaQOr6Hm9Nnm8cV-Vio_5pe5RbR3gUwqZ8CNl4Siiw
+content-type: application/json
+
+
+
+
+
+//fetch the most popular product
+###
+GET http://localhost:3000/api/product/featureproduct?companyid=1 HTTP/1.1
+content-type: application/json
+
+//edit user customer 
+###
+POST   https://api-tradego.herokuapp.com/api/customeruser/editcustomeruser HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2MDQ4OTl9.7vaQOr6Hm9Nnm8cV-Vio_5pe5RbR3gUwqZ8CNl4Siiw
+content-type: application/json
+
+{
+    "id":"500",
+    "Fname": "loveleen11",
+    "Lname": "minhas",
+    "email":"minhasloveln@gmail.com",
+    "phonenumber":"1234567898",
+    "countryid":1,
+    "provinceid":2,
+    "city":"jalan",
+    "postal":"asdff",
+    "address":"bvjdnks",
+    "password":"123456789",
+    "companyid":"1"
+}
+
+// Get Sales By Id 
+###
+
+GET http://localhost:3000/api/sales/getsalesorderbyid?orderid=1&companyid=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2MDQ4OTl9.7vaQOr6Hm9Nnm8cV-Vio_5pe5RbR3gUwqZ8CNl4Siiw
+content-type: application/json
+
+// Get sales---by filter---------------------->
+###
+
+POST http://localhost:3000/api/sales/getsales?Date=2020-03-31 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2MDQ4OTl9.7vaQOr6Hm9Nnm8cV-Vio_5pe5RbR3gUwqZ8CNl4Siiw
+content-type: application/json
+
+{
+    "companyid":"1"
+}
+// Get all sales----------------------->
+###
+POST http://localhost:3000/api/sales/getsales HTTP/1.1
+content-type: application/json
+
+{
+    "companyid":"1"
+}
+
+// Get all sales By CustomerId----------------------->
+###
+POST http://localhost:3000/api/sales/getsalesbycustomerid HTTP/1.1
+content-type: application/json
+
+{
+    "CustomerId":"1"
+}
+
+//total 
+###
+GET http://localhost:3000/api/product/total_value?companyid=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2MDUxNDN9.Akh__Xik0sEB6hRjJkythwRcCTWTZZCb8usVtd5lsYM
+content-type: application/json
+
+//total articles 
+###
+GET http://localhost:3000/api/product/total_articles?companyid=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2MDUxNDN9.Akh__Xik0sEB6hRjJkythwRcCTWTZZCb8usVtd5lsYM
+content-type: application/json
+
+
+
+
+//Highest Sold Product 
+###
+GET http://localhost:3000/api/sales/getmostsoldproduct?companyid=1 HTTP/1.1
+content-type: application/json
+
+
+
+
+//Least Sold Product 
+###
+GET http://18.:3000/api/sales/getlowestsoldproduct?companyid=1 HTTP/1.1
+content-type: application/json
+
+
+
+//getsalespercategory
+###
+GET https://api-tradego.herokuapp.com/api/sales/getsalespercategory?companyid=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU4ODUwNTB9.yy68brqMxsUUe-Al0RC1rN4sXcRXLCnBgcTeDORhGXY
+content-type: application/json
+
+
+
+//Incoming Purchase Report
+###
+GET http://localhost:3000/api/purchaseorder/getincomingpurchaseorder?companyid=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyMzQ1QGdtYWlsLmNvbSIsImlhdCI6MTU4NjE3NTU3MX0.OSJCX2H9U_FcNeLGG8U2v6zacmDnkQCRewhiCjAiyXQ
+content-type: application/json
+
+
+
+###
+//get purchase order details by id
+GET  http://localhost:3000/api/purchaseorder/getpurchaseorderbyid?CompanyId=1&PurchaseOrderId=5 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU2MDQ4OTl9.7vaQOr6Hm9Nnm8cV-Vio_5pe5RbR3gUwqZ8CNl4Siiw
+content-type: application/json
+
+####
+
+// get Delivery details by id
+GET  http://localhost:3000/api/delivery/getdeliverybyid?DeliveryId=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyMzQ1QGdtYWlsLmNvbSIsImlhdCI6MTU4NjE3NjMzNX0.lxgdlerzOz2oE2_bIf1u9zUeKnTHPBrgIgu3SzG24u4
+content-type: application/json
+
+
+//edit company user
+###
+POST http://localhost:3000/api/companyuser/edituser HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU3NjUwODR9.EJJ0sfB6oIsvE7ENfMe_BGZeHI_nLBudSSruMS1rIr0
+content-type: application/json
+
+{
+    "userid":4,
+    "fname":"minhasjoti",
+    "lname":"kaur",
+    "email":"j@gmail.com",
+    "password":"12121212",
+    "phonenumber":"1234567890"
+}
+
+//get company customer by id
+###
+GET http://localhost:3000/api/companyuser/getuserdetailsbyid?userid=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaWRhdjExZTgwQGdtYWlsLmNvbSIsImlhdCI6MTU4NTE1ODE2OH0.wYRhhLTZd4NMcj7sg95RF73_ivbfoUSU1B-VM2-RbJk
+content-type: application/json
+
+
+//get customer by id
+###
+GET http://localhost:3000/api/customeruser/getuserdetailsbyid?userid=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaWRhdjExZTgwQGdtYWlsLmNvbSIsImlhdCI6MTU4NTE1ODE2OH0.wYRhhLTZd4NMcj7sg95RF73_ivbfoUSU1B-VM2-RbJk
+content-type: application/json
+####
+
+
+
+
+// Current Incoming Products ----------------------------------------->
+
+###
+GET http://localhost:3000/api/product/incoming_products?CompanyId=1 HTTP/1.1
+content-type: application/json
+
+// Get Recent Sales By Week ------------------------------------------>
+
+###
+GET http://localhost:3000/api/sales/getrecentsalesbyweek?CompanyId=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhandpbmRlcjEyM0BnbWFpbC5jb20iLCJpYXQiOjE1ODU4NjM1NzV9.mr8RpZTiMoBzhG0vEBmxFyOiXr9mKQCk3pmVju_LfbM
+content-type: application/json
+
+// Get Company Details By CompanyId ------------------------->
+
+###
+GET http://localhost:3000/api/companyuser/getCompanyById?CompanyId=1 HTTP/1.1
+content-type: application/json
+
+// Edit Company profile --------------------------------------->
+
+###
+PUT  http://localhost:3000/api/companyuser/editCompanyProfile HTTP/1.1
+Content-Type: application/json
+
+{   
+    "CompanyId":1,
+    "CompanyName":"Hari Om",
+    "Website":"shreejico@gmail.com",
+    "Logo":"D:\\IMS\\InventoryManagement-Node.jsApp\\uploads\\e85d09b2-39b8-427c-b2ad-824bfc4b5508.jpg",
+    "Address1":"8,3320",
+    "Address2":"Rue Goyer",
+    "City":"Montreal",
+    "CountryId":1,
+    "ProvinceId":2,
+    "PostalCode":"H4S7K5",
+    "CurrencyId":1
+}
+
+####
+POST  http://localhost:3000/api/product/getproducts?category=Books HTTP/1.1
+content-type: application/json
+ 
+{
+    "CompanyId": 1
+}
